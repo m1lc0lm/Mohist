@@ -1,16 +1,23 @@
 package com.mohistmc.bukkit.pluginfix.fix;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+import java.util.ListIterator;
+import java.util.Locale;
 import org.bukkit.Material;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
+import static org.objectweb.asm.Opcodes.ALOAD;
+import static org.objectweb.asm.Opcodes.ARETURN;
+import static org.objectweb.asm.Opcodes.INVOKESTATIC;
+import static org.objectweb.asm.Opcodes.INVOKEVIRTUAL;
 import org.objectweb.asm.Type;
-import org.objectweb.asm.tree.*;
-
-import java.util.ListIterator;
-import java.util.Locale;
-
-import static com.google.common.base.Preconditions.checkNotNull;
-import static org.objectweb.asm.Opcodes.*;
+import org.objectweb.asm.tree.AbstractInsnNode;
+import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.InsnList;
+import org.objectweb.asm.tree.InsnNode;
+import org.objectweb.asm.tree.MethodInsnNode;
+import org.objectweb.asm.tree.MethodNode;
+import org.objectweb.asm.tree.VarInsnNode;
 
 public class WorldEditFix {
 
