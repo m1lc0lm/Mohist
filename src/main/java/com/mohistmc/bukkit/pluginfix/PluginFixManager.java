@@ -1,5 +1,6 @@
 package com.mohistmc.bukkit.pluginfix;
 
+import com.mohistmc.bukkit.pluginfix.fix.DynmapFix;
 import com.mohistmc.bukkit.pluginfix.fix.MythicMobFix;
 import com.mohistmc.bukkit.pluginfix.fix.WorldEditFix;
 import com.mohistmc.configuration.MohistConfig;
@@ -28,6 +29,12 @@ public class PluginFixManager {
         }
         if (className.endsWith("PaperLib")) {
             return PluginFixManager.removePaper(clazz);
+        }
+        if (className.equals("org.dynmap.bukkit.helper.v116_4.BukkitVersionHelperSpigot116_4")) {
+            return DynmapFix.replaceBukkitVersionHelperSpigot116_4(clazz);
+        }
+        if (className.equals("org.dynmap.bukkit.helper.BukkitVersionHelperGeneric")) {
+            return DynmapFix.replaceBukkitVersionHelperGeneric(clazz);
         }
         return clazz;
     }
